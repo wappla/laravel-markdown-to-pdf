@@ -1,0 +1,46 @@
+{
+    "name": "wappla/laravel-markdown-to-pdf",
+    "description": "A simple way for generating PDFs using markdown",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christoph Van Hees",
+            "email": "christoph@wappla.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "dompdf/dompdf": "^0.8.2",
+        "erusev/parsedown": "^1.6",
+        "illuminate/http": "~5.5.0 | ~5.6.0",
+        "illuminate/support": "~5.5.0 | ~5.6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5|^7.0",
+        "orchestra/testbench": "~3.5.0|~3.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wappla\\LaravelMarkdownToPDF\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "phpunit --coverage-html coverage"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wappla\\LaravelMarkdownToPDF\\MarkdownToPDFServiceProvider"
+            ],
+            "aliases": {
+                "MarkdownToPDF": "Wappla\\LaravelMarkdownToPDF\\Facade"
+            }
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
