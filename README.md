@@ -19,7 +19,43 @@ This packages uses the auto discovery feature of laravel. So there is no need to
 
 ## Usage
 
-Still in development
+Create a blade view and add the markdown to pdf component. Between the component element you can start writing markdown.
+
+Below i created a simple example.blade.php :
+```
+@component('MarkdownToPDF::layout')
+# Hello
+@endcomponent
+```
+
+### To view this as a PDF file in your browser you dan do:
+
+```php
+    return \MarkdownToPDF::loadView('example')->stream();
+```
+
+The standard directory for loading views is resources/views. No need to add the blade.php extension. If you would like to specify a custom directory you can use the dot notation.
+
+```php
+    return \MarkdownToPDF::loadView('custom-directory.example')->stream();
+```
+
+### Store this view in storage
+
+Specifiy a custom filename or leave blank to save your pdf in storage.
+
+```php
+    return \MarkdownToPDF::loadView('example')->save('awesome-file.pdf');
+```
+
+The pdf will be stored based on your Laravel filesystem configuration. If you would like to specify a custom location you can create your own disk and add a second parameter to the save method.
+
+The below example stores the pdf file on the public disk:
+
+```php
+    return \MarkdownToPDF::loadView('example')->save('awesome-file.pdf', 'public');
+```
+
 
 ## Configuration
 
